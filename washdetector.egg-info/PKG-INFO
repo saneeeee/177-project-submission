@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: washdetector
+Version: 0.1.0
+Requires-Python: >=3.8
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: numpy>=1.21.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: isort>=5.0.0; extra == "dev"

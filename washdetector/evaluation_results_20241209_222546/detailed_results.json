@@ -1,0 +1,1135 @@
+[
+  {
+    "difficulty": "medium",
+    "seed": 1042,
+    "num_transactions": 500,
+    "is_valid": true,
+    "graph_path": "/var/folders/hb/jt4n8xtx3dj2h2g7_jtnp_f80000gn/T/transaction_graph.html",
+    "execution_time": 10.369577884674072,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "true_positives": 4,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "true_negatives": 100,
+    "ground_truth_info": {
+      "wash_groups": [
+        [
+          "r4f14c553367ea355e78eb85d1124d5de",
+          "ra1062548ec8fd7e1a521b4d2aa8c82eb",
+          "r7dcac0497b391421dce31b1782ada391",
+          "r9771eaac4da60f889740d4d432007302"
+        ]
+      ],
+      "market_makers": [
+        "r72c3b2e85b5ca22b393d1c16cc42e586",
+        "r7e5214baced4d1a29941ffe9760c3651",
+        "re1d088c6ad1fccfae3a0df1beb6d8d01",
+        "r5291a44c5d184fd994a99b41f4a7765e",
+        "r0e1089135aebdcd9256ae9713fdfefe6"
+      ],
+      "wash_trader_connections": {},
+      "metrics": {
+        "total_volume": 8081.539175569386,
+        "wash_volume": 2400.0,
+        "wash_volume_percentage": 0.2969731319567485,
+        "num_wash_transactions": 120,
+        "total_transactions": 500
+      }
+    },
+    "detection_info": {
+      "reasoning_process": {
+        "network": "**\n   - The dataset indicates 10 detected cycles with an average cycle length of 3.40, suggesting potential circular trading patterns. Circular trading is a hallmark of wash trading, where assets are traded in a loop among colluding parties.\n   - The addresses involved in these cycles are likely engaging in trades that return the asset to the original owner, fitting the legal definition of wash trading.\n   - High volume symmetry addresses, such as r7dcac0497b391421dce31b1782ada391, r9771eaac4da60f889740d4d432007302, r4f14c553367ea355e78eb85d1124d5de, and ra1062548ec8fd7e1a521b4d2aa8c82eb, are involved in these cycles, indicating a lack of genuine market risk or change in ownership.\n\n2. **Position Analysis:**\n   - The dataset shows 78 addresses with frequent position reversions, with an average frequency of 39.73. However, none of these addresses are involved in the detected cycles, suggesting that frequent position reversions alone are not indicative of wash trading in this context.\n   - High volume symmetry addresses with cycle participation are more suspicious than those with frequent position reversions, as they align more closely with the characteristics of wash trading.\n\n3. **Volume Analysis:**\n   - The volume concentration range of 0.005 to 0.074 is relatively low, indicating that the trades are not excessively large, which might otherwise suggest market manipulation.\n   - High volume symmetry (>80% in/out balance) is observed in several addresses, which, when combined with cycle participation, suggests coordinated trading activity without genuine market risk.\n   - Normal market maker behavior typically involves high volume but not necessarily high symmetry or circular trading patterns.",
+        "volume": "**\n   - The volume concentration range of 0.005 to 0.074 is relatively low, indicating that the trades are not excessively large, which might otherwise suggest market manipulation.\n   - High volume symmetry (>80% in/out balance) is observed in several addresses, which, when combined with cycle participation, suggests coordinated trading activity without genuine market risk.\n   - Normal market maker behavior typically involves high volume but not necessarily high symmetry or circular trading patterns.",
+        "temporal": "",
+        "price": "",
+        "behavioral": ""
+      },
+      "evidence": {
+        "network": [],
+        "volume": [],
+        "temporal": [],
+        "price": [],
+        "behavioral": []
+      },
+      "alternative_explanations": [],
+      "is_wash_trading": true,
+      "confidence": 0.85,
+      "suspicious_addresses": [
+        "r7dcac0497b391421dce31b1782ada391",
+        "r9771eaac4da60f889740d4d432007302",
+        "r4f14c553367ea355e78eb85d1124d5de",
+        "ra1062548ec8fd7e1a521b4d2aa8c82eb"
+      ],
+      "recommendations": [],
+      "raw_response": "DETAILED REASONING:\n\n1. **Network Analysis:**\n   - The dataset indicates 10 detected cycles with an average cycle length of 3.40, suggesting potential circular trading patterns. Circular trading is a hallmark of wash trading, where assets are traded in a loop among colluding parties.\n   - The addresses involved in these cycles are likely engaging in trades that return the asset to the original owner, fitting the legal definition of wash trading.\n   - High volume symmetry addresses, such as r7dcac0497b391421dce31b1782ada391, r9771eaac4da60f889740d4d432007302, r4f14c553367ea355e78eb85d1124d5de, and ra1062548ec8fd7e1a521b4d2aa8c82eb, are involved in these cycles, indicating a lack of genuine market risk or change in ownership.\n\n2. **Position Analysis:**\n   - The dataset shows 78 addresses with frequent position reversions, with an average frequency of 39.73. However, none of these addresses are involved in the detected cycles, suggesting that frequent position reversions alone are not indicative of wash trading in this context.\n   - High volume symmetry addresses with cycle participation are more suspicious than those with frequent position reversions, as they align more closely with the characteristics of wash trading.\n\n3. **Volume Analysis:**\n   - The volume concentration range of 0.005 to 0.074 is relatively low, indicating that the trades are not excessively large, which might otherwise suggest market manipulation.\n   - High volume symmetry (>80% in/out balance) is observed in several addresses, which, when combined with cycle participation, suggests coordinated trading activity without genuine market risk.\n   - Normal market maker behavior typically involves high volume but not necessarily high symmetry or circular trading patterns.\n\nEVIDENCE SUMMARY:\n- **Network Analysis:** 10 cycles detected with an average length of 3.40; high volume symmetry addresses involved in cycles.\n- **Position Analysis:** 78 addresses with frequent position reversions, but none involved in cycles.\n- **Volume Analysis:** High volume symmetry in addresses participating in cycles; low volume concentration range.\n\nWASH TRADING ASSESSMENT:\nWash trading is likely occurring, as evidenced by the presence of circular trading patterns involving high volume symmetry addresses, which align with the legal definition of wash trading.\n\nCONFIDENCE LEVEL:\n85% confidence. The combination of cycle detection, high volume symmetry, and lack of genuine market risk strongly suggests wash trading. However, the absence of frequent position reversions in cycle participants slightly reduces confidence.\n\nSUSPICIOUS ADDRESSES:\n- r7dcac0497b391421dce31b1782ada391\n- r9771eaac4da60f889740d4d432007302\n- r4f14c553367ea355e78eb85d1124d5de\n- ra1062548ec8fd7e1a521b4d2aa8c82eb"
+    }
+  },
+  {
+    "difficulty": "easy",
+    "seed": 342,
+    "num_transactions": 300,
+    "is_valid": true,
+    "graph_path": "/var/folders/hb/jt4n8xtx3dj2h2g7_jtnp_f80000gn/T/transaction_graph.html",
+    "execution_time": 10.497252941131592,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "true_positives": 4,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "true_negatives": 100,
+    "ground_truth_info": {
+      "wash_groups": [
+        [
+          "r9c4fa82971f4d678c5cd5adc5dcce581",
+          "ra37f76eb0572d94a204287d4c1b26e37",
+          "r4f23835c036388bd49ae39704f13b86d",
+          "r147354b83ff8591f6c6963ea8d02a7ae"
+        ]
+      ],
+      "market_makers": [],
+      "wash_trader_connections": {},
+      "metrics": {
+        "total_volume": 5089.014333459762,
+        "wash_volume": 2400.0,
+        "wash_volume_percentage": 0.4716040951624441,
+        "num_wash_transactions": 120,
+        "total_transactions": 300
+      }
+    },
+    "detection_info": {
+      "reasoning_process": {
+        "network": "**\n   - The dataset indicates 10 detected cycles with an average cycle length of 3.30, involving 4 addresses. This suggests potential circular trading, a common wash trading pattern where assets are traded in a loop among a set of addresses.\n   - High volume symmetry is observed in five addresses, with four of these also participating in cycles. This symmetry indicates that these addresses have nearly equal amounts of incoming and outgoing transactions, which aligns with wash trading characteristics where the market position remains unchanged.\n   - Mapping token flow patterns, the transactions from ra37f76eb0572d94a204287d4c1b26e37 to r4f23835c036388bd49ae39704f13b86d, and back to ra37f76eb0572d94a204287d4c1b26e37 through a series of intermediary addresses, suggest a circular pattern with no real change in ownership.\n\n2. **Position Analysis:**\n   - 75 addresses show frequent position reversions, with an average frequency of 26.20. However, none of these addresses participate in cycles, which reduces the likelihood of wash trading for these specific addresses.\n   - The addresses with high volume symmetry and cycle participation are more suspicious, as they align with the legal definition of wash trading by maintaining the same market position.\n\n3. **Volume Analysis:**\n   - The volume concentration range of 0.005 to 0.118 is relatively low, suggesting that the transactions are not large enough to be typical of market-making activities, which usually involve higher volumes.\n   - The high volume symmetry in certain addresses, combined with their participation in cycles, indicates a pattern consistent with wash trading, as these addresses are likely executing trades that give the appearance of activity without real market risk.",
+        "volume": "**\n   - The volume concentration range of 0.005 to 0.118 is relatively low, suggesting that the transactions are not large enough to be typical of market-making activities, which usually involve higher volumes.\n   - The high volume symmetry in certain addresses, combined with their participation in cycles, indicates a pattern consistent with wash trading, as these addresses are likely executing trades that give the appearance of activity without real market risk.",
+        "temporal": "",
+        "price": "",
+        "behavioral": ""
+      },
+      "evidence": {
+        "network": [],
+        "volume": [],
+        "temporal": [],
+        "price": [],
+        "behavioral": []
+      },
+      "alternative_explanations": [],
+      "is_wash_trading": true,
+      "confidence": 0.85,
+      "suspicious_addresses": [
+        "ra37f76eb0572d94a204287d4c1b26e37",
+        "r4f23835c036388bd49ae39704f13b86d",
+        "r147354b83ff8591f6c6963ea8d02a7ae",
+        "r9c4fa82971f4d678c5cd5adc5dcce581"
+      ],
+      "recommendations": [],
+      "raw_response": "DETAILED REASONING:\n\n1. **Network Analysis:**\n   - The dataset indicates 10 detected cycles with an average cycle length of 3.30, involving 4 addresses. This suggests potential circular trading, a common wash trading pattern where assets are traded in a loop among a set of addresses.\n   - High volume symmetry is observed in five addresses, with four of these also participating in cycles. This symmetry indicates that these addresses have nearly equal amounts of incoming and outgoing transactions, which aligns with wash trading characteristics where the market position remains unchanged.\n   - Mapping token flow patterns, the transactions from ra37f76eb0572d94a204287d4c1b26e37 to r4f23835c036388bd49ae39704f13b86d, and back to ra37f76eb0572d94a204287d4c1b26e37 through a series of intermediary addresses, suggest a circular pattern with no real change in ownership.\n\n2. **Position Analysis:**\n   - 75 addresses show frequent position reversions, with an average frequency of 26.20. However, none of these addresses participate in cycles, which reduces the likelihood of wash trading for these specific addresses.\n   - The addresses with high volume symmetry and cycle participation are more suspicious, as they align with the legal definition of wash trading by maintaining the same market position.\n\n3. **Volume Analysis:**\n   - The volume concentration range of 0.005 to 0.118 is relatively low, suggesting that the transactions are not large enough to be typical of market-making activities, which usually involve higher volumes.\n   - The high volume symmetry in certain addresses, combined with their participation in cycles, indicates a pattern consistent with wash trading, as these addresses are likely executing trades that give the appearance of activity without real market risk.\n\nEVIDENCE SUMMARY:\n- **Network Analysis:** 10 cycles detected, 4 addresses involved in cycles with high volume symmetry.\n- **Position Analysis:** 75 addresses with frequent position reversions, but none involved in cycles.\n- **Volume Analysis:** Low volume concentration, high volume symmetry in cycle-participating addresses.\n\nWASH TRADING ASSESSMENT:\nBased on the analysis, wash trading is likely occurring among the addresses involved in cycles with high volume symmetry. These patterns align with the characteristics of wash trading, where trades are executed to create the illusion of market activity without changing the trader's market position.\n\nCONFIDENCE LEVEL:\n85% confidence. The presence of circular trading patterns, high volume symmetry, and the lack of real ownership change strongly suggest wash trading. However, the absence of position reversions in cycle-participating addresses slightly reduces confidence.\n\nSUSPICIOUS ADDRESSES:\n- ra37f76eb0572d94a204287d4c1b26e37\n- r4f23835c036388bd49ae39704f13b86d\n- r147354b83ff8591f6c6963ea8d02a7ae\n- r9c4fa82971f4d678c5cd5adc5dcce581"
+    }
+  },
+  {
+    "difficulty": "medium",
+    "seed": 1142,
+    "num_transactions": 500,
+    "is_valid": true,
+    "graph_path": "/var/folders/hb/jt4n8xtx3dj2h2g7_jtnp_f80000gn/T/transaction_graph.html",
+    "execution_time": 10.982842922210693,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "true_positives": 4,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "true_negatives": 100,
+    "ground_truth_info": {
+      "wash_groups": [
+        [
+          "re31dc15a524a72128912dbce14440113",
+          "rf50ae5475ddb2769851ef58cbaaff794",
+          "r8c80476ceeaad57991e3b4e9465be4f7",
+          "r098c17ee2861e42686c80a8289c3c250"
+        ]
+      ],
+      "market_makers": [
+        "r7dcac0497b391421dce31b1782ada391",
+        "r4f14c553367ea355e78eb85d1124d5de",
+        "r7f0b1ed8b38010ee71d4064ab720754a",
+        "ra1062548ec8fd7e1a521b4d2aa8c82eb",
+        "r9771eaac4da60f889740d4d432007302"
+      ],
+      "wash_trader_connections": {},
+      "metrics": {
+        "total_volume": 8090.8482164116795,
+        "wash_volume": 2400.0,
+        "wash_volume_percentage": 0.296631445283052,
+        "num_wash_transactions": 120,
+        "total_transactions": 500
+      }
+    },
+    "detection_info": {
+      "reasoning_process": {
+        "network": "**\n   - The dataset indicates 10 detected cycles with an average cycle length of 3.40, suggesting potential circular trading, a common wash trading pattern.\n   - The presence of 4 addresses involved in these cycles, combined with high volume symmetry, is a strong indicator of wash trading. These addresses are likely executing trades that return them to their original market positions, fulfilling the legal definition of wash trading.\n   - The high volume symmetry (>80% in/out balance) for addresses such as r8c80476ceeaad57991e3b4e9465be4f7, rf50ae5475ddb2769851ef58cbaaff794, r098c17ee2861e42686c80a8289c3c250, and re31dc15a524a72128912dbce14440113 suggests that these addresses are involved in trades that do not change their net market position, further supporting the wash trading hypothesis.\n\n2. **Position Analysis:**\n   - With 78 addresses showing frequent position reversions, this indicates a pattern where traders frequently return to their initial positions, a potential sign of wash trading.\n   - However, none of these addresses are involved in cycle participation, which suggests that while position reversion is common, it may not be directly linked to the circular trading patterns observed.\n   - The distinction between normal market maker behavior and wash trading is crucial. Market makers might show high volume and frequent trades but typically do not exhibit the same level of symmetry and cycle participation.\n\n3. **Volume Analysis:**\n   - The volume concentration range (0.005 to 0.074) is relatively low, indicating that trades are not excessively large, which is typical in wash trading to avoid detection.\n   - The high volume symmetry in certain addresses suggests that these addresses are involved in trades that balance out, a characteristic of wash trading.\n   - Normal trading variance would show more diversity in volume patterns, whereas the observed symmetry and concentration suggest coordinated trading activity.",
+        "volume": "**\n   - The volume concentration range (0.005 to 0.074) is relatively low, indicating that trades are not excessively large, which is typical in wash trading to avoid detection.\n   - The high volume symmetry in certain addresses suggests that these addresses are involved in trades that balance out, a characteristic of wash trading.\n   - Normal trading variance would show more diversity in volume patterns, whereas the observed symmetry and concentration suggest coordinated trading activity.",
+        "temporal": "",
+        "price": "",
+        "behavioral": ""
+      },
+      "evidence": {
+        "network": [],
+        "volume": [],
+        "temporal": [],
+        "price": [],
+        "behavioral": []
+      },
+      "alternative_explanations": [],
+      "is_wash_trading": true,
+      "confidence": 0.85,
+      "suspicious_addresses": [
+        "r8c80476ceeaad57991e3b4e9465be4f7",
+        "rf50ae5475ddb2769851ef58cbaaff794",
+        "r098c17ee2861e42686c80a8289c3c250",
+        "re31dc15a524a72128912dbce14440113"
+      ],
+      "recommendations": [],
+      "raw_response": "DETAILED REASONING:\n\n1. **Network Analysis:**\n   - The dataset indicates 10 detected cycles with an average cycle length of 3.40, suggesting potential circular trading, a common wash trading pattern.\n   - The presence of 4 addresses involved in these cycles, combined with high volume symmetry, is a strong indicator of wash trading. These addresses are likely executing trades that return them to their original market positions, fulfilling the legal definition of wash trading.\n   - The high volume symmetry (>80% in/out balance) for addresses such as r8c80476ceeaad57991e3b4e9465be4f7, rf50ae5475ddb2769851ef58cbaaff794, r098c17ee2861e42686c80a8289c3c250, and re31dc15a524a72128912dbce14440113 suggests that these addresses are involved in trades that do not change their net market position, further supporting the wash trading hypothesis.\n\n2. **Position Analysis:**\n   - With 78 addresses showing frequent position reversions, this indicates a pattern where traders frequently return to their initial positions, a potential sign of wash trading.\n   - However, none of these addresses are involved in cycle participation, which suggests that while position reversion is common, it may not be directly linked to the circular trading patterns observed.\n   - The distinction between normal market maker behavior and wash trading is crucial. Market makers might show high volume and frequent trades but typically do not exhibit the same level of symmetry and cycle participation.\n\n3. **Volume Analysis:**\n   - The volume concentration range (0.005 to 0.074) is relatively low, indicating that trades are not excessively large, which is typical in wash trading to avoid detection.\n   - The high volume symmetry in certain addresses suggests that these addresses are involved in trades that balance out, a characteristic of wash trading.\n   - Normal trading variance would show more diversity in volume patterns, whereas the observed symmetry and concentration suggest coordinated trading activity.\n\nEVIDENCE SUMMARY:\n- **Network Analysis:** 10 cycles detected, 4 addresses involved in cycles with high volume symmetry.\n- **Position Analysis:** 78 addresses with frequent position reversions, but no overlap with cycle participation.\n- **Volume Analysis:** High volume symmetry and low volume concentration suggest coordinated trading.\n\nWASH TRADING ASSESSMENT:\nBased on the analysis, wash trading is likely occurring. The combination of circular trading patterns, high volume symmetry, and position reversion patterns strongly suggests coordinated trading activity designed to give the appearance of legitimate market activity without actual risk or change in ownership.\n\nCONFIDENCE LEVEL:\n85% confidence. The presence of multiple indicators of wash trading, such as cycle participation and volume symmetry, provides strong evidence. However, the lack of overlap between position reversions and cycle participation slightly reduces confidence.\n\nSUSPICIOUS ADDRESSES:\n- r8c80476ceeaad57991e3b4e9465be4f7\n- rf50ae5475ddb2769851ef58cbaaff794\n- r098c17ee2861e42686c80a8289c3c250\n- re31dc15a524a72128912dbce14440113"
+    }
+  },
+  {
+    "difficulty": "easy",
+    "seed": 42,
+    "num_transactions": 300,
+    "is_valid": true,
+    "graph_path": "/var/folders/hb/jt4n8xtx3dj2h2g7_jtnp_f80000gn/T/transaction_graph.html",
+    "execution_time": 12.004076957702637,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "true_positives": 4,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "true_negatives": 100,
+    "ground_truth_info": {
+      "wash_groups": [
+        [
+          "ra3c967ffae20f0c1b16d6aef95248411",
+          "rf3f2a46ad9f55ffe2f15f3bee807f0bf",
+          "r14ddd9d07453403009082d4f72c1a41d",
+          "r6c3a50e8ce5ae5b9c1e97f66ded77f2b"
+        ]
+      ],
+      "market_makers": [],
+      "wash_trader_connections": {},
+      "metrics": {
+        "total_volume": 5080.0728428775465,
+        "wash_volume": 2400.0,
+        "wash_volume_percentage": 0.4724341705778669,
+        "num_wash_transactions": 120,
+        "total_transactions": 300
+      }
+    },
+    "detection_info": {
+      "reasoning_process": {
+        "network": "**\n   - The dataset indicates 10 detected cycles with an average cycle length of 3.40, suggesting potential circular trading patterns. Circular trading is a common indicator of wash trading, as it involves the same assets being traded back and forth among a group of addresses.\n   - The presence of high volume symmetry addresses (e.g., r14ddd9d07453403009082d4f72c1a41d, rf3f2a46ad9f55ffe2f15f3bee807f0bf, r6c3a50e8ce5ae5b9c1e97f66ded77f2b, ra3c967ffae20f0c1b16d6aef95248411) aligns with the cycle detection, indicating these addresses might be involved in wash trading loops.\n   - Mapping token flow patterns shows that these addresses are involved in transactions that return the assets to the original sender, a hallmark of wash trading.\n\n2. **Position Analysis:**\n   - 78 addresses exhibit frequent position reversions, with an average frequency of 26.00. However, none of these addresses are involved in the detected cycles, which suggests that frequent position reversions alone are not indicative of wash trading in this dataset.\n   - The addresses with high volume symmetry and cycle participation are more suspicious, as they align with the legal definition of wash trading by maintaining the same market position.\n\n3. **Volume Analysis:**\n   - The volume concentration range (0.005 to 0.118) is relatively low, indicating that the trades are not large in size, which is typical for wash trading to avoid detection.\n   - High volume symmetry (>80% in/out balance) is observed in the same addresses involved in cycles, reinforcing the suspicion of wash trading. These addresses maintain a balanced volume of assets moving in and out, which is consistent with wash trading behavior.\n   - Normal trading variance and market maker activity are considered, but the combination of high symmetry, cycle participation, and volume patterns suggests these are not typical market-making activities.",
+        "volume": "**\n   - The volume concentration range (0.005 to 0.118) is relatively low, indicating that the trades are not large in size, which is typical for wash trading to avoid detection.\n   - High volume symmetry (>80% in/out balance) is observed in the same addresses involved in cycles, reinforcing the suspicion of wash trading. These addresses maintain a balanced volume of assets moving in and out, which is consistent with wash trading behavior.\n   - Normal trading variance and market maker activity are considered, but the combination of high symmetry, cycle participation, and volume patterns suggests these are not typical market-making activities.",
+        "temporal": "",
+        "price": "",
+        "behavioral": ""
+      },
+      "evidence": {
+        "network": [],
+        "volume": [],
+        "temporal": [],
+        "price": [],
+        "behavioral": []
+      },
+      "alternative_explanations": [],
+      "is_wash_trading": true,
+      "confidence": 0.85,
+      "suspicious_addresses": [
+        "r14ddd9d07453403009082d4f72c1a41d",
+        "rf3f2a46ad9f55ffe2f15f3bee807f0bf",
+        "r6c3a50e8ce5ae5b9c1e97f66ded77f2b",
+        "ra3c967ffae20f0c1b16d6aef95248411"
+      ],
+      "recommendations": [],
+      "raw_response": "DETAILED REASONING:\n\n1. **Network Analysis:**\n   - The dataset indicates 10 detected cycles with an average cycle length of 3.40, suggesting potential circular trading patterns. Circular trading is a common indicator of wash trading, as it involves the same assets being traded back and forth among a group of addresses.\n   - The presence of high volume symmetry addresses (e.g., r14ddd9d07453403009082d4f72c1a41d, rf3f2a46ad9f55ffe2f15f3bee807f0bf, r6c3a50e8ce5ae5b9c1e97f66ded77f2b, ra3c967ffae20f0c1b16d6aef95248411) aligns with the cycle detection, indicating these addresses might be involved in wash trading loops.\n   - Mapping token flow patterns shows that these addresses are involved in transactions that return the assets to the original sender, a hallmark of wash trading.\n\n2. **Position Analysis:**\n   - 78 addresses exhibit frequent position reversions, with an average frequency of 26.00. However, none of these addresses are involved in the detected cycles, which suggests that frequent position reversions alone are not indicative of wash trading in this dataset.\n   - The addresses with high volume symmetry and cycle participation are more suspicious, as they align with the legal definition of wash trading by maintaining the same market position.\n\n3. **Volume Analysis:**\n   - The volume concentration range (0.005 to 0.118) is relatively low, indicating that the trades are not large in size, which is typical for wash trading to avoid detection.\n   - High volume symmetry (>80% in/out balance) is observed in the same addresses involved in cycles, reinforcing the suspicion of wash trading. These addresses maintain a balanced volume of assets moving in and out, which is consistent with wash trading behavior.\n   - Normal trading variance and market maker activity are considered, but the combination of high symmetry, cycle participation, and volume patterns suggests these are not typical market-making activities.\n\nEVIDENCE SUMMARY:\n- **Network Analysis:** 10 cycles detected, average cycle length of 3.40, high volume symmetry in cycle-involved addresses.\n- **Position Analysis:** 78 addresses with frequent position reversions, but none overlap with cycle participation.\n- **Volume Analysis:** High volume symmetry and low volume concentration in suspicious addresses, consistent with wash trading.\n\nWASH TRADING ASSESSMENT:\nWash trading is likely occurring in this dataset, particularly involving the addresses with high volume symmetry and cycle participation.\n\nCONFIDENCE LEVEL:\n85% confidence. The combination of cycle detection, high volume symmetry, and consistent token flow patterns strongly suggests wash trading, though the absence of position reversion overlap slightly reduces certainty.\n\nSUSPICIOUS ADDRESSES:\n- r14ddd9d07453403009082d4f72c1a41d\n- rf3f2a46ad9f55ffe2f15f3bee807f0bf\n- r6c3a50e8ce5ae5b9c1e97f66ded77f2b\n- ra3c967ffae20f0c1b16d6aef95248411"
+    }
+  },
+  {
+    "difficulty": "easy",
+    "seed": 142,
+    "num_transactions": 300,
+    "is_valid": true,
+    "graph_path": "/var/folders/hb/jt4n8xtx3dj2h2g7_jtnp_f80000gn/T/transaction_graph.html",
+    "execution_time": 11.895603895187378,
+    "precision": 0.8,
+    "recall": 1.0,
+    "f1_score": 0.888888888888889,
+    "true_positives": 4,
+    "false_positives": 1,
+    "false_negatives": 0,
+    "true_negatives": 99,
+    "ground_truth_info": {
+      "wash_groups": [
+        [
+          "r87bb47cb7f0092640706b39b55d9e4b8",
+          "r505f886a8692f91ee5303537fa5dcfb4",
+          "rc927b3d7c9dfdbe2c0655831f2396945",
+          "r11eb467878893121498d83332035bce5"
+        ]
+      ],
+      "market_makers": [],
+      "wash_trader_connections": {},
+      "metrics": {
+        "total_volume": 5157.851866247105,
+        "wash_volume": 2400.0,
+        "wash_volume_percentage": 0.465309989940882,
+        "num_wash_transactions": 120,
+        "total_transactions": 300
+      }
+    },
+    "detection_info": {
+      "reasoning_process": {
+        "network": "**\n   - The dataset indicates 10 detected cycles with an average cycle length of 3.40, suggesting potential circular trading patterns. Circular trading is a hallmark of wash trading, where assets are passed around in a loop to create the illusion of activity.\n   - High volume symmetry addresses are rc927b3d7c9dfdbe2c0655831f2396945, r505f886a8692f91ee5303537fa5dcfb4, r5401b8889f91ff8a23cc438d222240ea, r87bb47cb7f0092640706b39b55d9e4b8, and r11eb467878893121498d83332035bce5. These addresses are involved in cycles, indicating they might be part of wash trading loops.\n   - Mapping token flow patterns shows that these addresses are involved in transactions that return the tokens to the original sender, which aligns with the definition of wash trading.\n\n2. **Position Analysis:**\n   - 77 addresses show frequent position reversions, with an average frequency of 25.94. However, none of these addresses are involved in cycles, which reduces the likelihood of wash trading for these specific addresses.\n   - The addresses with high volume symmetry and cycle participation are more suspicious, as they maintain their market position despite high transaction activity, which is atypical for genuine trading.\n\n3. **Volume Analysis:**\n   - The volume concentration range is between 0.005 to 0.116, which is relatively low and suggests that the transactions are not large enough to be market-moving on their own.\n   - High volume symmetry (>80% in/out balance) is observed in the same addresses involved in cycles, reinforcing the suspicion of wash trading. These addresses show a pattern of trading that does not result in a net change in their market position, which is consistent with wash trading behavior.",
+        "volume": "**\n   - The volume concentration range is between 0.005 to 0.116, which is relatively low and suggests that the transactions are not large enough to be market-moving on their own.\n   - High volume symmetry (>80% in/out balance) is observed in the same addresses involved in cycles, reinforcing the suspicion of wash trading. These addresses show a pattern of trading that does not result in a net change in their market position, which is consistent with wash trading behavior.",
+        "temporal": "",
+        "price": "",
+        "behavioral": ""
+      },
+      "evidence": {
+        "network": [],
+        "volume": [],
+        "temporal": [],
+        "price": [],
+        "behavioral": []
+      },
+      "alternative_explanations": [],
+      "is_wash_trading": true,
+      "confidence": 0.85,
+      "suspicious_addresses": [
+        "rc927b3d7c9dfdbe2c0655831f2396945",
+        "r505f886a8692f91ee5303537fa5dcfb4",
+        "r5401b8889f91ff8a23cc438d222240ea",
+        "r87bb47cb7f0092640706b39b55d9e4b8",
+        "r11eb467878893121498d83332035bce5"
+      ],
+      "recommendations": [],
+      "raw_response": "DETAILED REASONING:\n\n1. **Network Analysis:**\n   - The dataset indicates 10 detected cycles with an average cycle length of 3.40, suggesting potential circular trading patterns. Circular trading is a hallmark of wash trading, where assets are passed around in a loop to create the illusion of activity.\n   - High volume symmetry addresses are rc927b3d7c9dfdbe2c0655831f2396945, r505f886a8692f91ee5303537fa5dcfb4, r5401b8889f91ff8a23cc438d222240ea, r87bb47cb7f0092640706b39b55d9e4b8, and r11eb467878893121498d83332035bce5. These addresses are involved in cycles, indicating they might be part of wash trading loops.\n   - Mapping token flow patterns shows that these addresses are involved in transactions that return the tokens to the original sender, which aligns with the definition of wash trading.\n\n2. **Position Analysis:**\n   - 77 addresses show frequent position reversions, with an average frequency of 25.94. However, none of these addresses are involved in cycles, which reduces the likelihood of wash trading for these specific addresses.\n   - The addresses with high volume symmetry and cycle participation are more suspicious, as they maintain their market position despite high transaction activity, which is atypical for genuine trading.\n\n3. **Volume Analysis:**\n   - The volume concentration range is between 0.005 to 0.116, which is relatively low and suggests that the transactions are not large enough to be market-moving on their own.\n   - High volume symmetry (>80% in/out balance) is observed in the same addresses involved in cycles, reinforcing the suspicion of wash trading. These addresses show a pattern of trading that does not result in a net change in their market position, which is consistent with wash trading behavior.\n\nEVIDENCE SUMMARY:\n- **Network Analysis:** 10 cycles detected with an average length of 3.40; high volume symmetry addresses involved in cycles.\n- **Position Analysis:** 77 addresses with frequent position reversions, but none involved in cycles.\n- **Volume Analysis:** High volume symmetry in addresses involved in cycles; low volume concentration range.\n\nWASH TRADING ASSESSMENT:\nBased on the analysis, wash trading is likely occurring. The presence of circular trading patterns, high volume symmetry, and lack of net position change in certain addresses strongly suggest wash trading activities.\n\nCONFIDENCE LEVEL:\n85% - The combination of cycle detection, high volume symmetry, and unchanged market positions provides strong evidence of wash trading. However, the lack of involvement of addresses with frequent position reversions in cycles slightly reduces confidence.\n\nSUSPICIOUS ADDRESSES:\n- rc927b3d7c9dfdbe2c0655831f2396945\n- r505f886a8692f91ee5303537fa5dcfb4\n- r5401b8889f91ff8a23cc438d222240ea\n- r87bb47cb7f0092640706b39b55d9e4b8\n- r11eb467878893121498d83332035bce5"
+    }
+  },
+  {
+    "difficulty": "easy",
+    "seed": 242,
+    "num_transactions": 300,
+    "is_valid": true,
+    "graph_path": "/var/folders/hb/jt4n8xtx3dj2h2g7_jtnp_f80000gn/T/transaction_graph.html",
+    "execution_time": 13.816434144973755,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "true_positives": 4,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "true_negatives": 100,
+    "ground_truth_info": {
+      "wash_groups": [
+        [
+          "r12cd1f899568f9a8358170b21eeb9a47",
+          "rfe342a0cc2aebf657fd819c030033c09",
+          "r4a6ffa021a33a6f0626b39316053eee8",
+          "r2a22350f017a60b948ffcebfc549ec3a"
+        ]
+      ],
+      "market_makers": [],
+      "wash_trader_connections": {},
+      "metrics": {
+        "total_volume": 5157.27447445011,
+        "wash_volume": 2400.0,
+        "wash_volume_percentage": 0.4653620845448405,
+        "num_wash_transactions": 120,
+        "total_transactions": 300
+      }
+    },
+    "detection_info": {
+      "reasoning_process": {
+        "network": "**\n   - The dataset indicates 10 detected cycles with an average cycle length of 3.40 and an average cycle volume of 201.00. This suggests potential circular trading, a common indicator of wash trading.\n   - High volume symmetry addresses are involved in these cycles, specifically: `r2a22350f017a60b948ffcebfc549ec3a`, `rfe342a0cc2aebf657fd819c030033c09`, `r12cd1f899568f9a8358170b21eeb9a47`, and `r4a6ffa021a33a6f0626b39316053eee8`. These addresses are likely participating in trades that return them to their original market positions, aligning with the legal definition of wash trading.\n   - The token flow patterns show that these addresses are part of circular trading loops, reinforcing the suspicion of wash trading.\n\n2. **Position Analysis:**\n   - There are 77 addresses with frequent position reversions, with an average frequency of 26.25. However, none of these addresses overlap with those involved in cycles, suggesting that frequent position reversions alone are not indicative of wash trading in this dataset.\n   - The addresses with high volume symmetry and cycle participation are more suspicious, as they align with the characteristics of wash trading by maintaining their market positions through circular trades.\n\n3. **Volume Analysis:**\n   - The volume concentration range is between 0.005 to 0.116, which is relatively low and suggests that the trades are not driven by large volume spikes, which could be a red flag for wash trading.\n   - The high volume symmetry (>80% in/out balance) of the identified addresses further supports the suspicion of wash trading, as these addresses are likely executing trades that do not change their net market positions.",
+        "volume": "**\n   - The volume concentration range is between 0.005 to 0.116, which is relatively low and suggests that the trades are not driven by large volume spikes, which could be a red flag for wash trading.\n   - The high volume symmetry (>80% in/out balance) of the identified addresses further supports the suspicion of wash trading, as these addresses are likely executing trades that do not change their net market positions.",
+        "temporal": "",
+        "price": "",
+        "behavioral": ""
+      },
+      "evidence": {
+        "network": [],
+        "volume": [],
+        "temporal": [],
+        "price": [],
+        "behavioral": []
+      },
+      "alternative_explanations": [],
+      "is_wash_trading": true,
+      "confidence": 0.85,
+      "suspicious_addresses": [
+        "r2a22350f017a60b948ffcebfc549ec3a",
+        "rfe342a0cc2aebf657fd819c030033c09",
+        "r12cd1f899568f9a8358170b21eeb9a47",
+        "r4a6ffa021a33a6f0626b39316053eee8"
+      ],
+      "recommendations": [],
+      "raw_response": "DETAILED REASONING:\n\n1. **Network Analysis:**\n   - The dataset indicates 10 detected cycles with an average cycle length of 3.40 and an average cycle volume of 201.00. This suggests potential circular trading, a common indicator of wash trading.\n   - High volume symmetry addresses are involved in these cycles, specifically: `r2a22350f017a60b948ffcebfc549ec3a`, `rfe342a0cc2aebf657fd819c030033c09`, `r12cd1f899568f9a8358170b21eeb9a47`, and `r4a6ffa021a33a6f0626b39316053eee8`. These addresses are likely participating in trades that return them to their original market positions, aligning with the legal definition of wash trading.\n   - The token flow patterns show that these addresses are part of circular trading loops, reinforcing the suspicion of wash trading.\n\n2. **Position Analysis:**\n   - There are 77 addresses with frequent position reversions, with an average frequency of 26.25. However, none of these addresses overlap with those involved in cycles, suggesting that frequent position reversions alone are not indicative of wash trading in this dataset.\n   - The addresses with high volume symmetry and cycle participation are more suspicious, as they align with the characteristics of wash trading by maintaining their market positions through circular trades.\n\n3. **Volume Analysis:**\n   - The volume concentration range is between 0.005 to 0.116, which is relatively low and suggests that the trades are not driven by large volume spikes, which could be a red flag for wash trading.\n   - The high volume symmetry (>80% in/out balance) of the identified addresses further supports the suspicion of wash trading, as these addresses are likely executing trades that do not change their net market positions.\n\nEVIDENCE SUMMARY:\n- **Network Analysis:** Detected cycles with high volume symmetry addresses involved, indicating circular trading.\n- **Position Analysis:** High volume symmetry addresses show cycle participation, aligning with wash trading patterns.\n- **Volume Analysis:** High volume symmetry without large volume spikes, consistent with wash trading behavior.\n\nWASH TRADING ASSESSMENT:\nWash trading is likely occurring, given the presence of circular trading patterns, high volume symmetry, and the maintenance of market positions by the involved addresses.\n\nCONFIDENCE LEVEL:\n85% confidence. The combination of cycle detection, high volume symmetry, and consistent market positions strongly suggests wash trading, though the absence of frequent position reversions in cycle participants slightly reduces certainty.\n\nSUSPICIOUS ADDRESSES:\n- `r2a22350f017a60b948ffcebfc549ec3a`\n- `rfe342a0cc2aebf657fd819c030033c09`\n- `r12cd1f899568f9a8358170b21eeb9a47`\n- `r4a6ffa021a33a6f0626b39316053eee8`"
+    }
+  },
+  {
+    "difficulty": "medium",
+    "seed": 1342,
+    "num_transactions": 500,
+    "is_valid": true,
+    "graph_path": "/var/folders/hb/jt4n8xtx3dj2h2g7_jtnp_f80000gn/T/transaction_graph.html",
+    "execution_time": 15.74475383758545,
+    "precision": 0.75,
+    "recall": 0.75,
+    "f1_score": 0.75,
+    "true_positives": 3,
+    "false_positives": 1,
+    "false_negatives": 1,
+    "true_negatives": 99,
+    "ground_truth_info": {
+      "wash_groups": [
+        [
+          "r05226db4e5519de5d079eab7b8462e37",
+          "rc4fcd1feb4db82190366ae133e01270e",
+          "r663c2ab1e427163422fe0c5aaff2fa84",
+          "rb63e0fbd2d77ff5dd8429b573f51ecd0"
+        ]
+      ],
+      "market_makers": [
+        "ra32fc9bff4c5a5a9f83164d119676f68",
+        "r3db871b535cf129f58b8c9df558f12df",
+        "re35fcde2625e03ea7ca299c46ab7318f",
+        "r5dd72ddde6ab14e91070990ed777289f",
+        "r23dfe08cac7762ffb3672bbc4c9274db"
+      ],
+      "wash_trader_connections": {},
+      "metrics": {
+        "total_volume": 8088.0130577433065,
+        "wash_volume": 2400.0,
+        "wash_volume_percentage": 0.2967354259773711,
+        "num_wash_transactions": 120,
+        "total_transactions": 500
+      }
+    },
+    "detection_info": {
+      "reasoning_process": {
+        "network": "**\n   - The dataset indicates 10 detected cycles with an average cycle length of 3.30, suggesting potential circular trading patterns. Circular trading is a hallmark of wash trading, where assets are passed around in a loop to create the illusion of activity.\n   - High volume symmetry addresses are involved in these cycles, which is suspicious because it suggests that these addresses are maintaining their market position without real change in ownership.\n   - The addresses involved in both high volume symmetry and cycle participation are: rb63e0fbd2d77ff5dd8429b573f51ecd0, r663c2ab1e427163422fe0c5aaff2fa84, rc4fcd1feb4db82190366ae133e01270e, and ra32fc9bff4c5a5a9f83164d119676f68. These addresses are likely engaging in wash trading due to their involvement in circular trading and maintaining high volume symmetry.\n\n2. **Position Analysis:**\n   - 78 addresses show frequent position reversions, with an average frequency of 40.10. However, none of these addresses are involved in cycle participation, which reduces the likelihood of wash trading for these specific addresses.\n   - The lack of overlap between frequent position reversions and cycle participation suggests that the position reversions might be due to normal market activities or other non-wash trading behaviors.\n\n3. **Volume Analysis:**\n   - The volume concentration range is between 0.005 to 0.074, which is relatively low and suggests that the trades are not concentrated in a few addresses, reducing the likelihood of wash trading based solely on volume concentration.\n   - However, the high volume symmetry in certain addresses, combined with their participation in cycles, is a strong indicator of wash trading. This symmetry suggests that these addresses are trading with themselves or colluding parties to maintain their market position.",
+        "volume": "**\n   - The volume concentration range is between 0.005 to 0.074, which is relatively low and suggests that the trades are not concentrated in a few addresses, reducing the likelihood of wash trading based solely on volume concentration.\n   - However, the high volume symmetry in certain addresses, combined with their participation in cycles, is a strong indicator of wash trading. This symmetry suggests that these addresses are trading with themselves or colluding parties to maintain their market position.",
+        "temporal": "",
+        "price": "",
+        "behavioral": ""
+      },
+      "evidence": {
+        "network": [],
+        "volume": [],
+        "temporal": [],
+        "price": [],
+        "behavioral": []
+      },
+      "alternative_explanations": [],
+      "is_wash_trading": true,
+      "confidence": 0.85,
+      "suspicious_addresses": [
+        "rb63e0fbd2d77ff5dd8429b573f51ecd0",
+        "r663c2ab1e427163422fe0c5aaff2fa84",
+        "rc4fcd1feb4db82190366ae133e01270e",
+        "ra32fc9bff4c5a5a9f83164d119676f68"
+      ],
+      "recommendations": [],
+      "raw_response": "DETAILED REASONING:\n\n1. **Network Analysis:**\n   - The dataset indicates 10 detected cycles with an average cycle length of 3.30, suggesting potential circular trading patterns. Circular trading is a hallmark of wash trading, where assets are passed around in a loop to create the illusion of activity.\n   - High volume symmetry addresses are involved in these cycles, which is suspicious because it suggests that these addresses are maintaining their market position without real change in ownership.\n   - The addresses involved in both high volume symmetry and cycle participation are: rb63e0fbd2d77ff5dd8429b573f51ecd0, r663c2ab1e427163422fe0c5aaff2fa84, rc4fcd1feb4db82190366ae133e01270e, and ra32fc9bff4c5a5a9f83164d119676f68. These addresses are likely engaging in wash trading due to their involvement in circular trading and maintaining high volume symmetry.\n\n2. **Position Analysis:**\n   - 78 addresses show frequent position reversions, with an average frequency of 40.10. However, none of these addresses are involved in cycle participation, which reduces the likelihood of wash trading for these specific addresses.\n   - The lack of overlap between frequent position reversions and cycle participation suggests that the position reversions might be due to normal market activities or other non-wash trading behaviors.\n\n3. **Volume Analysis:**\n   - The volume concentration range is between 0.005 to 0.074, which is relatively low and suggests that the trades are not concentrated in a few addresses, reducing the likelihood of wash trading based solely on volume concentration.\n   - However, the high volume symmetry in certain addresses, combined with their participation in cycles, is a strong indicator of wash trading. This symmetry suggests that these addresses are trading with themselves or colluding parties to maintain their market position.\n\nEVIDENCE SUMMARY:\n- **Network Analysis:** 10 cycles detected with an average length of 3.30; high volume symmetry addresses involved in cycles.\n- **Position Analysis:** 78 addresses with frequent position reversions, but none overlap with cycle participation.\n- **Volume Analysis:** Low volume concentration range, but high volume symmetry in cycle-participating addresses.\n\nWASH TRADING ASSESSMENT:\nWash trading is likely occurring, particularly involving the addresses with high volume symmetry and participation in circular trading patterns.\n\nCONFIDENCE LEVEL:\n85% confidence. The combination of high volume symmetry, cycle participation, and the maintenance of market positions strongly suggests wash trading activities. The lack of overlap between position reversions and cycle participation slightly reduces confidence but does not negate the strong indicators present.\n\nSUSPICIOUS ADDRESSES:\n- rb63e0fbd2d77ff5dd8429b573f51ecd0\n- r663c2ab1e427163422fe0c5aaff2fa84\n- rc4fcd1feb4db82190366ae133e01270e\n- ra32fc9bff4c5a5a9f83164d119676f68"
+    }
+  },
+  {
+    "difficulty": "medium",
+    "seed": 1242,
+    "num_transactions": 500,
+    "is_valid": true,
+    "graph_path": "/var/folders/hb/jt4n8xtx3dj2h2g7_jtnp_f80000gn/T/transaction_graph.html",
+    "execution_time": 17.958269119262695,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "true_positives": 4,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "true_negatives": 100,
+    "ground_truth_info": {
+      "wash_groups": [
+        [
+          "r5dd72ddde6ab14e91070990ed777289f",
+          "r3db871b535cf129f58b8c9df558f12df",
+          "re35fcde2625e03ea7ca299c46ab7318f",
+          "ra32fc9bff4c5a5a9f83164d119676f68"
+        ]
+      ],
+      "market_makers": [
+        "r203c90bb86fdcf600f6492cb2a9bcd5f",
+        "r098c17ee2861e42686c80a8289c3c250",
+        "rf50ae5475ddb2769851ef58cbaaff794",
+        "re31dc15a524a72128912dbce14440113",
+        "r8c80476ceeaad57991e3b4e9465be4f7"
+      ],
+      "wash_trader_connections": {},
+      "metrics": {
+        "total_volume": 8109.23203776918,
+        "wash_volume": 2400.0,
+        "wash_volume_percentage": 0.29595897476134264,
+        "num_wash_transactions": 120,
+        "total_transactions": 500
+      }
+    },
+    "detection_info": {
+      "reasoning_process": {
+        "network": "**\n   - **Cycle Detection:** The dataset indicates 10 detected cycles with an average cycle length of 3.40. This suggests potential circular trading, which is a hallmark of wash trading. The presence of cycles implies that some addresses are repeatedly trading with each other in a closed loop, potentially to create the illusion of market activity.\n   - **Volume Symmetry:** High volume symmetry addresses are those with over 80% balance between incoming and outgoing transactions. The addresses ra32fc9bff4c5a5a9f83164d119676f68, r3db871b535cf129f58b8c9df558f12df, re35fcde2625e03ea7ca299c46ab7318f, and r5dd72ddde6ab14e91070990ed777289f show high volume symmetry and are involved in cycles, suggesting they might be part of wash trading loops.\n   - **Token Flow Patterns:** The flow of tokens between these addresses, especially when they return to the original sender or a closely related address, supports the hypothesis of wash trading.\n\n2. **Position Analysis:**\n   - **Position Reversions:** 78 addresses show frequent position reversions, with an average frequency of 40.81. However, none of these addresses are involved in cycles, which reduces the likelihood of wash trading based solely on position reversions.\n   - **Symmetry and Reversions:** While high symmetry and frequent reversions are suspicious, the lack of overlap with cycle participation suggests these might be normal market activities or other non-wash trading behaviors.\n\n3. **Volume Analysis:**\n   - **Volume Concentration:** The volume concentration range is between 0.005 to 0.074, which is relatively low and does not immediately suggest wash trading. However, the symmetry in volume for certain addresses, combined with their participation in cycles, is more indicative of wash trading.\n   - **Suspicious Volume Patterns:** The addresses with high volume symmetry and cycle participation are more likely to be involved in wash trading, as they exhibit both high symmetry and circular trading patterns.",
+        "volume": "**\n   - **Volume Concentration:** The volume concentration range is between 0.005 to 0.074, which is relatively low and does not immediately suggest wash trading. However, the symmetry in volume for certain addresses, combined with their participation in cycles, is more indicative of wash trading.\n   - **Suspicious Volume Patterns:** The addresses with high volume symmetry and cycle participation are more likely to be involved in wash trading, as they exhibit both high symmetry and circular trading patterns.",
+        "temporal": "",
+        "price": "",
+        "behavioral": ""
+      },
+      "evidence": {
+        "network": [],
+        "volume": [],
+        "temporal": [],
+        "price": [],
+        "behavioral": []
+      },
+      "alternative_explanations": [],
+      "is_wash_trading": true,
+      "confidence": 0.85,
+      "suspicious_addresses": [
+        "ra32fc9bff4c5a5a9f83164d119676f68",
+        "r3db871b535cf129f58b8c9df558f12df",
+        "re35fcde2625e03ea7ca299c46ab7318f",
+        "r5dd72ddde6ab14e91070990ed777289f"
+      ],
+      "recommendations": [],
+      "raw_response": "DETAILED REASONING:\n\n1. **Network Analysis:**\n   - **Cycle Detection:** The dataset indicates 10 detected cycles with an average cycle length of 3.40. This suggests potential circular trading, which is a hallmark of wash trading. The presence of cycles implies that some addresses are repeatedly trading with each other in a closed loop, potentially to create the illusion of market activity.\n   - **Volume Symmetry:** High volume symmetry addresses are those with over 80% balance between incoming and outgoing transactions. The addresses ra32fc9bff4c5a5a9f83164d119676f68, r3db871b535cf129f58b8c9df558f12df, re35fcde2625e03ea7ca299c46ab7318f, and r5dd72ddde6ab14e91070990ed777289f show high volume symmetry and are involved in cycles, suggesting they might be part of wash trading loops.\n   - **Token Flow Patterns:** The flow of tokens between these addresses, especially when they return to the original sender or a closely related address, supports the hypothesis of wash trading.\n\n2. **Position Analysis:**\n   - **Position Reversions:** 78 addresses show frequent position reversions, with an average frequency of 40.81. However, none of these addresses are involved in cycles, which reduces the likelihood of wash trading based solely on position reversions.\n   - **Symmetry and Reversions:** While high symmetry and frequent reversions are suspicious, the lack of overlap with cycle participation suggests these might be normal market activities or other non-wash trading behaviors.\n\n3. **Volume Analysis:**\n   - **Volume Concentration:** The volume concentration range is between 0.005 to 0.074, which is relatively low and does not immediately suggest wash trading. However, the symmetry in volume for certain addresses, combined with their participation in cycles, is more indicative of wash trading.\n   - **Suspicious Volume Patterns:** The addresses with high volume symmetry and cycle participation are more likely to be involved in wash trading, as they exhibit both high symmetry and circular trading patterns.\n\nEVIDENCE SUMMARY:\n- **Cycle Detection:** 10 cycles detected with an average length of 3.40, involving 4 addresses.\n- **Volume Symmetry:** High symmetry observed in ra32fc9bff4c5a5a9f83164d119676f68, r3db871b535cf129f58b8c9df558f12df, re35fcde2625e03ea7ca299c46ab7318f, and r5dd72ddde6ab14e91070990ed777289f.\n- **Position Reversions:** 78 addresses with frequent reversions, but none overlap with cycle participation.\n- **Volume Concentration:** Low overall concentration, but suspicious symmetry in specific addresses.\n\nWASH TRADING ASSESSMENT:\nWash trading is likely occurring, particularly involving the addresses with high volume symmetry and participation in detected cycles. These patterns align with the legal definition of wash trading, where trades give the appearance of activity without real market risk or change in ownership.\n\nCONFIDENCE LEVEL:\n85% confidence. The combination of cycle detection, high volume symmetry, and specific address involvement strongly suggests wash trading. However, the lack of overlap with position reversions and the potential for legitimate market-making activities slightly reduce certainty.\n\nSUSPICIOUS ADDRESSES:\n- ra32fc9bff4c5a5a9f83164d119676f68\n- r3db871b535cf129f58b8c9df558f12df\n- re35fcde2625e03ea7ca299c46ab7318f\n- r5dd72ddde6ab14e91070990ed777289f"
+    }
+  },
+  {
+    "difficulty": "hard",
+    "seed": 2142,
+    "num_transactions": 1000,
+    "is_valid": true,
+    "graph_path": "/var/folders/hb/jt4n8xtx3dj2h2g7_jtnp_f80000gn/T/transaction_graph.html",
+    "execution_time": 11.26036787033081,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1_score": 0,
+    "true_positives": 0,
+    "false_positives": 5,
+    "false_negatives": 11,
+    "true_negatives": 95,
+    "ground_truth_info": {
+      "wash_groups": [
+        [
+          "rd796efee92d431ecfcb222cc81b85e00",
+          "r61bfe7ee65759b3d084aa1b871b0e3b1",
+          "r419a2051213dbb0b14cf0ab58d28a961",
+          "r23d3ad716b7eb405db00a6c1220e4f22"
+        ],
+        [
+          "rbb86aed90b2b6977a4f7a931a8162849",
+          "reda53c1e02538a91ce4981b99b9b57b0",
+          "r12f9da27f51fad8103dbd4384aec24a6",
+          "rad248035b2cc1c04f99c5f7b5005a89c",
+          "r44562ec96556f4c375aecea978ed57eb",
+          "r741367ae4cdc16d316e62c4d0bd71a3c",
+          "r4a18329531af6ca5544b8d7926c1cef8"
+        ]
+      ],
+      "market_makers": [
+        "r585de4fc699dba1bd2989877e06c2e3c",
+        "r550f5b3e2f550ed1d20e64bfe0804ed0",
+        "rfcf5f03ab3bb4cc6bfa879ff6087ef06",
+        "rf618800eadbc1fe2f2ad4d5def30f8c1",
+        "re730da9d00ca9928347870a7844727f5"
+      ],
+      "wash_trader_connections": {
+        "rd796efee92d431ecfcb222cc81b85e00": [
+          "r3c0cf075e429541704d3bb720d76b882",
+          "r9462ba5b5862b951493819abc3590d6f",
+          "r93e130321e5a10198c3d3f6420c2109f",
+          "re0528a88b419e49fe14d4f4be8fd877f",
+          "r74d32e5cd933d0f449fc6706991486fa"
+        ],
+        "r61bfe7ee65759b3d084aa1b871b0e3b1": [
+          "r1505c617bb699cc96249c7f8e47183f4",
+          "rd3c8a17487fd3a5b7f6eed7a985b7a6d",
+          "rd39f0f169997832619ee1574d17dc77a",
+          "r15cdf250e22d0c54a29f21b2c98f7c53",
+          "rf9444b990824ed20c6cbe263bf5d0ba0"
+        ],
+        "r419a2051213dbb0b14cf0ab58d28a961": [
+          "r1cc4e9fa53d8eda114b24bde0fb3d177",
+          "r23ab5e94b56bb7398b2921d754bdd7dc",
+          "r8ce6b001b199d715f54befda4c223766",
+          "r4356d36ac52ecdfb72620ae28c125916",
+          "re0528a88b419e49fe14d4f4be8fd877f"
+        ],
+        "r23d3ad716b7eb405db00a6c1220e4f22": [
+          "r004c8b0ed0e74ab88f5b8f1fc9c66653",
+          "r93e130321e5a10198c3d3f6420c2109f",
+          "r8109ff04b1ec6ea1f38d471ee31b5d13",
+          "r4f039e023aa08e1b7d2b2f0af7f53409",
+          "r56bcd079eb86cd694658a891b419d862"
+        ],
+        "rbb86aed90b2b6977a4f7a931a8162849": [
+          "r31e8c8128f0d625fb59613023846d302",
+          "r004c8b0ed0e74ab88f5b8f1fc9c66653",
+          "rfd3b37e37b21eeded08cda7480e6170c",
+          "rba7b85dd5d2b23c6e57de75a2a98d2e4",
+          "r637e40f41d0de96c3cedaedbabdaccd5"
+        ],
+        "reda53c1e02538a91ce4981b99b9b57b0": [
+          "r5ddd7785ed98d93abca169b9c568927f",
+          "red4d529f20583fd0e056366c62550daf",
+          "rbee609e5ff43d1bae4814794f3d10809",
+          "rd6d11013d3e073bb47d1d9c0f23f4474",
+          "r2cfb011fe3d3cf48e8de23be5c7c561b"
+        ],
+        "r12f9da27f51fad8103dbd4384aec24a6": [
+          "r874c03b068294eab1ca1d5c897fae149",
+          "rf9444b990824ed20c6cbe263bf5d0ba0",
+          "r66f06574112052b58561e49af9af9e81",
+          "r4f039e023aa08e1b7d2b2f0af7f53409",
+          "rf08f1e9ea8d9465b0556a25281213260"
+        ],
+        "rad248035b2cc1c04f99c5f7b5005a89c": [
+          "r6df5dfb876b897efadd43e771030055d",
+          "r1505c617bb699cc96249c7f8e47183f4",
+          "r5fa936b6ba5292cc83d391b2469dc9cc",
+          "rd6d11013d3e073bb47d1d9c0f23f4474",
+          "r56bcd079eb86cd694658a891b419d862"
+        ],
+        "r44562ec96556f4c375aecea978ed57eb": [
+          "red4d529f20583fd0e056366c62550daf",
+          "re6a9563d44908d10a35297dbbeed990b",
+          "r6d9f4c1d974952f3c8e85e258d4cae3d",
+          "rf134f80e541adf97e2c4e5e296577ee2",
+          "rfcd7db9b6fcddc82c77c2f51a37f8c39"
+        ],
+        "r741367ae4cdc16d316e62c4d0bd71a3c": [
+          "r6826a71abe82d9a93d78d29d0524cec0",
+          "rfedda88994c1bde6a210779f2a4680f7",
+          "r3ba74188d2d3aac11813b28b41471e97",
+          "r189c891015781317aa4c643e80934281",
+          "r4f039e023aa08e1b7d2b2f0af7f53409"
+        ],
+        "r4a18329531af6ca5544b8d7926c1cef8": [
+          "rc3c640807a782a888ac83834253a4faa",
+          "re8b38377a23b53e3c168aa3a515d7a83",
+          "r5d89b303049026481623bbb2a5298292",
+          "r16cbea72c715d30b8c17035c2b7563c6",
+          "rd39f0f169997832619ee1574d17dc77a"
+        ]
+      },
+      "metrics": {
+        "total_volume": 15126.094057272434,
+        "wash_volume": 3898.5073969501527,
+        "wash_volume_percentage": 0.2577339121513528,
+        "num_wash_transactions": 260,
+        "total_transactions": 1000
+      }
+    },
+    "detection_info": {
+      "reasoning_process": {
+        "network": "**\n   - The dataset indicates 10 detected cycles with an average cycle length of 4.70, involving 18 addresses. This suggests potential circular trading, a common wash trading pattern.\n   - High volume symmetry is noted for addresses such as r585de4fc699dba1bd2989877e06c2e3c, which also participates in cycles. This symmetry implies that these addresses might be involved in trades that do not change their net position, aligning with the legal definition of wash trading.\n   - Mapping token flow patterns, we observe that addresses with high volume symmetry and cycle participation are likely engaging in trades that return the tokens to the original address, indicating potential collusion.\n\n2. **Position Analysis:**\n   - 83 addresses exhibit frequent position reversions, with an average frequency of 63.33. This high frequency suggests that these addresses often return to their initial market position, a key indicator of wash trading.\n   - Among these, 14 addresses show both frequent position reversions and cycle participation, further strengthening the suspicion of wash trading activities.\n   - While market makers can exhibit high volume and frequent trades, the combination of high symmetry, cycle participation, and frequent position reversions is atypical for legitimate market-making activities.\n\n3. **Volume Analysis:**\n   - The volume concentration range of 0.005 to 0.046 is relatively narrow, suggesting that trades are being executed in a controlled manner to maintain a specific volume pattern, which is suspicious.\n   - High volume symmetry (>80% in/out balance) is observed in several addresses, notably r585de4fc699dba1bd2989877e06c2e3c, which aligns with wash trading characteristics where trades are executed to maintain the same market position.\n   - Normal trading variance would typically show more diversity in volume patterns, whereas the observed symmetry and concentration suggest manipulation.",
+        "volume": "**\n   - The volume concentration range of 0.005 to 0.046 is relatively narrow, suggesting that trades are being executed in a controlled manner to maintain a specific volume pattern, which is suspicious.\n   - High volume symmetry (>80% in/out balance) is observed in several addresses, notably r585de4fc699dba1bd2989877e06c2e3c, which aligns with wash trading characteristics where trades are executed to maintain the same market position.\n   - Normal trading variance would typically show more diversity in volume patterns, whereas the observed symmetry and concentration suggest manipulation.",
+        "temporal": "",
+        "price": "",
+        "behavioral": ""
+      },
+      "evidence": {
+        "network": [],
+        "volume": [],
+        "temporal": [],
+        "price": [],
+        "behavioral": []
+      },
+      "alternative_explanations": [],
+      "is_wash_trading": true,
+      "confidence": 0.85,
+      "suspicious_addresses": [
+        "r585de4fc699dba1bd2989877e06c2e3c",
+        "r5ddd7785ed98d93abca169b9c568927f",
+        "r189c891015781317aa4c643e80934281",
+        "re0224842475211abf50aad6736a86541",
+        "r6d9ae64ecf393f36d352ac46d9aaa1b0"
+      ],
+      "recommendations": [],
+      "raw_response": "DETAILED REASONING:\n\n1. **Network Analysis:**\n   - The dataset indicates 10 detected cycles with an average cycle length of 4.70, involving 18 addresses. This suggests potential circular trading, a common wash trading pattern.\n   - High volume symmetry is noted for addresses such as r585de4fc699dba1bd2989877e06c2e3c, which also participates in cycles. This symmetry implies that these addresses might be involved in trades that do not change their net position, aligning with the legal definition of wash trading.\n   - Mapping token flow patterns, we observe that addresses with high volume symmetry and cycle participation are likely engaging in trades that return the tokens to the original address, indicating potential collusion.\n\n2. **Position Analysis:**\n   - 83 addresses exhibit frequent position reversions, with an average frequency of 63.33. This high frequency suggests that these addresses often return to their initial market position, a key indicator of wash trading.\n   - Among these, 14 addresses show both frequent position reversions and cycle participation, further strengthening the suspicion of wash trading activities.\n   - While market makers can exhibit high volume and frequent trades, the combination of high symmetry, cycle participation, and frequent position reversions is atypical for legitimate market-making activities.\n\n3. **Volume Analysis:**\n   - The volume concentration range of 0.005 to 0.046 is relatively narrow, suggesting that trades are being executed in a controlled manner to maintain a specific volume pattern, which is suspicious.\n   - High volume symmetry (>80% in/out balance) is observed in several addresses, notably r585de4fc699dba1bd2989877e06c2e3c, which aligns with wash trading characteristics where trades are executed to maintain the same market position.\n   - Normal trading variance would typically show more diversity in volume patterns, whereas the observed symmetry and concentration suggest manipulation.\n\nEVIDENCE SUMMARY:\n- **Network Analysis:** 10 cycles detected, high volume symmetry in cycle-participating addresses.\n- **Position Analysis:** 83 addresses with frequent position reversions, 14 of which also participate in cycles.\n- **Volume Analysis:** Narrow volume concentration range, high volume symmetry in key addresses.\n\nWASH TRADING ASSESSMENT:\nBased on the analysis, wash trading is likely occurring in this dataset. The combination of cycle detection, high volume symmetry, frequent position reversions, and narrow volume concentration strongly suggests manipulative trading practices.\n\nCONFIDENCE LEVEL:\n85% confidence. The evidence from multiple analytical angles consistently points towards wash trading patterns, although some legitimate market-making activities could exhibit similar characteristics.\n\nSUSPICIOUS ADDRESSES:\n- r585de4fc699dba1bd2989877e06c2e3c\n- r5ddd7785ed98d93abca169b9c568927f\n- r189c891015781317aa4c643e80934281\n- re0224842475211abf50aad6736a86541\n- r6d9ae64ecf393f36d352ac46d9aaa1b0\n\nThese addresses exhibit high volume symmetry, participate in cycles, and show frequent position reversions, making them prime candidates for further investigation into wash trading activities."
+    }
+  },
+  {
+    "difficulty": "hard",
+    "seed": 2042,
+    "num_transactions": 1000,
+    "is_valid": true,
+    "graph_path": "/var/folders/hb/jt4n8xtx3dj2h2g7_jtnp_f80000gn/T/transaction_graph.html",
+    "execution_time": 11.35528016090393,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1_score": 0,
+    "true_positives": 0,
+    "false_positives": 5,
+    "false_negatives": 11,
+    "true_negatives": 95,
+    "ground_truth_info": {
+      "wash_groups": [
+        [
+          "rf618800eadbc1fe2f2ad4d5def30f8c1",
+          "re730da9d00ca9928347870a7844727f5",
+          "r585de4fc699dba1bd2989877e06c2e3c",
+          "rfcf5f03ab3bb4cc6bfa879ff6087ef06"
+        ],
+        [
+          "r550f5b3e2f550ed1d20e64bfe0804ed0",
+          "r5d9fee20693645495d99216e2ad5c383",
+          "r1505c617bb699cc96249c7f8e47183f4",
+          "r004c8b0ed0e74ab88f5b8f1fc9c66653",
+          "r53bb407b8e92928ffab8aaf660a05712",
+          "r74d32e5cd933d0f449fc6706991486fa",
+          "r4f039e023aa08e1b7d2b2f0af7f53409"
+        ]
+      ],
+      "market_makers": [
+        "r546c7feea37bf02a67f14bd88e6da5af",
+        "r52d41895bc50a73d1f935a32ecf825e4",
+        "r3e12adec9e2c34dcf4533ca17b830bb2",
+        "rda14188a9a41f81b55dbb75cc7ab312f",
+        "r0c9b0bb66b4e8dae20c7ad95e64ef4ee"
+      ],
+      "wash_trader_connections": {
+        "rf618800eadbc1fe2f2ad4d5def30f8c1": [
+          "rc4283753bb6948a67c67755d904d0c56",
+          "r1a123fb9803f1f7bb3dcc2394ce96434",
+          "rb35d294963b69c7a3456a33d1de88156",
+          "rb08da793d3224f0d307f7905795df8ee",
+          "r177cb58d40b2f3279ea9d2b6a048878e"
+        ],
+        "re730da9d00ca9928347870a7844727f5": [
+          "r312fa7a1f269c020325bcb3474a323b4",
+          "r6bd4a66374bfc9ae16530e5c6ae52a4f",
+          "r5998b915d93ed7ef9c12d887903852c1",
+          "r5bad7c278de481c8c84accad6df93fdf",
+          "r091ac3fea62301493d6e02dba79fff64"
+        ],
+        "r585de4fc699dba1bd2989877e06c2e3c": [
+          "r52c18fe09bff73fe47c1fd5d6f392b41",
+          "r74c6c48f8a71fc286e8ea4e934c484de",
+          "re2bf738759583b995176e7790a9609d7",
+          "r177cb58d40b2f3279ea9d2b6a048878e",
+          "r5bad7c278de481c8c84accad6df93fdf"
+        ],
+        "rfcf5f03ab3bb4cc6bfa879ff6087ef06": [
+          "r74c6c48f8a71fc286e8ea4e934c484de",
+          "rb35d294963b69c7a3456a33d1de88156",
+          "r177cb58d40b2f3279ea9d2b6a048878e",
+          "rbbad968e255929b01d3b00fa72438aa3",
+          "r8f59607495d1a6edaebd423e61a9ea1a"
+        ],
+        "r550f5b3e2f550ed1d20e64bfe0804ed0": [
+          "rfe0d22785fbf83ce7d1e283b58de4914",
+          "r625bc9afc667baa83909ae9b582a36d9",
+          "r44ad3a99755dfe54b65dfe94f35c26e1",
+          "re2197b637ece34553a2a21361d14e12f",
+          "r5bad7c278de481c8c84accad6df93fdf"
+        ],
+        "r5d9fee20693645495d99216e2ad5c383": [
+          "r52c18fe09bff73fe47c1fd5d6f392b41",
+          "rf1a519ca781dbbf14b3091c0c396e3a3",
+          "r9bd7bfbcbc2d0baee758a3a83c63d367",
+          "r13416638e01fb73b19a4726063fd4ecd",
+          "rb08da793d3224f0d307f7905795df8ee"
+        ],
+        "r1505c617bb699cc96249c7f8e47183f4": [
+          "r71b746079f043f3155171dfce1e51647",
+          "rde987cb0ea94b42c4a42bc43926093d7",
+          "rc94b3c71a2798bfa6dba3ccf6e04ea40",
+          "r25aff21b723c3d307a32aea331088c16",
+          "r8f59607495d1a6edaebd423e61a9ea1a"
+        ],
+        "r004c8b0ed0e74ab88f5b8f1fc9c66653": [
+          "rc4283753bb6948a67c67755d904d0c56",
+          "rb4169436817a3143f3186182e5064079",
+          "r6cf70ca7ea91c8dd9ab070f2256997d7",
+          "rc98cf51815c4f37a84535ce3321233b0",
+          "rb36805e1fc587572e698bbb5b8a4a4f4"
+        ],
+        "r53bb407b8e92928ffab8aaf660a05712": [
+          "rde987cb0ea94b42c4a42bc43926093d7",
+          "r549121548260f8e5147dbe4dc72d06ed",
+          "r7c4ad8d73462a349863e09f12eeda06a",
+          "rb526fed05ef318d18c9dfb469294b8e1",
+          "r6cf70ca7ea91c8dd9ab070f2256997d7"
+        ],
+        "r74d32e5cd933d0f449fc6706991486fa": [
+          "r549121548260f8e5147dbe4dc72d06ed",
+          "ra46ddf981946c2d9cb005e1404f3d18a",
+          "r95d2e9c333e540058127ff47176f9030",
+          "rb526fed05ef318d18c9dfb469294b8e1",
+          "re2197b637ece34553a2a21361d14e12f"
+        ],
+        "r4f039e023aa08e1b7d2b2f0af7f53409": [
+          "rab18e5c8b8816934d7b0851ec97097d4",
+          "rbc2f029ba80c612a4df5aab6b543fca8",
+          "rb08da793d3224f0d307f7905795df8ee",
+          "r126a03c0b72617cbaa4620d8c6e60311",
+          "r8f59607495d1a6edaebd423e61a9ea1a"
+        ]
+      },
+      "metrics": {
+        "total_volume": 15138.286814521789,
+        "wash_volume": 3838.5887060421132,
+        "wash_volume_percentage": 0.25356823748112955,
+        "num_wash_transactions": 260,
+        "total_transactions": 1000
+      }
+    },
+    "detection_info": {
+      "reasoning_process": {
+        "network": "**\n   - The dataset indicates 10 detected cycles with an average cycle length of 4.70 and an average cycle volume of 18.56. This suggests potential circular trading, which is a common characteristic of wash trading.\n   - The presence of 16 addresses in these cycles, combined with high volume symmetry, is a strong indicator of wash trading. High volume symmetry (>80% in/out balance) suggests that these addresses are likely involved in trades that do not change their market position, aligning with the legal definition of wash trading.\n   - Mapping token flow patterns, we observe that three addresses show both high volume symmetry and cycle participation, which strengthens the suspicion of wash trading activities.\n\n2. **Position Analysis:**\n   - With 80 addresses showing frequent position reversions and an average reversion frequency of 63.49, there is a significant indication of wash trading. Frequent position reversions imply that these addresses often return to their initial market positions, a hallmark of wash trading.\n   - Among these, 13 addresses also participate in cycles, further suggesting that these addresses are engaging in trades that do not result in a real change of ownership.\n   - While market makers can exhibit high volume and frequent trades, the combination of high symmetry, cycle participation, and frequent position reversions is atypical for legitimate market-making activities.\n\n3. **Volume Analysis:**\n   - The volume concentration range of 0.005 to 0.056 is relatively narrow, indicating that trades are being executed in a consistent pattern, which could be indicative of wash trading.\n   - High volume symmetry patterns, especially when combined with cycle participation, suggest that these trades are not contributing to genuine market activity but are instead designed to create the illusion of volume.\n   - Normal trading variance would typically show more diverse volume patterns, whereas the observed symmetry and concentration suggest manipulation.",
+        "volume": "**\n   - The volume concentration range of 0.005 to 0.056 is relatively narrow, indicating that trades are being executed in a consistent pattern, which could be indicative of wash trading.\n   - High volume symmetry patterns, especially when combined with cycle participation, suggest that these trades are not contributing to genuine market activity but are instead designed to create the illusion of volume.\n   - Normal trading variance would typically show more diverse volume patterns, whereas the observed symmetry and concentration suggest manipulation.",
+        "temporal": "",
+        "price": "",
+        "behavioral": ""
+      },
+      "evidence": {
+        "network": [],
+        "volume": [],
+        "temporal": [],
+        "price": [],
+        "behavioral": []
+      },
+      "alternative_explanations": [],
+      "is_wash_trading": true,
+      "confidence": 0.85,
+      "suspicious_addresses": [
+        "re2bf738759583b995176e7790a9609d7",
+        "rda14188a9a41f81b55dbb75cc7ab312f",
+        "r52d41895bc50a73d1f935a32ecf825e4",
+        "r71b746079f043f3155171dfce1e51647",
+        "r3e12adec9e2c34dcf4533ca17b830bb2"
+      ],
+      "recommendations": [],
+      "raw_response": "DETAILED REASONING:\n\n1. **Network Analysis:**\n   - The dataset indicates 10 detected cycles with an average cycle length of 4.70 and an average cycle volume of 18.56. This suggests potential circular trading, which is a common characteristic of wash trading.\n   - The presence of 16 addresses in these cycles, combined with high volume symmetry, is a strong indicator of wash trading. High volume symmetry (>80% in/out balance) suggests that these addresses are likely involved in trades that do not change their market position, aligning with the legal definition of wash trading.\n   - Mapping token flow patterns, we observe that three addresses show both high volume symmetry and cycle participation, which strengthens the suspicion of wash trading activities.\n\n2. **Position Analysis:**\n   - With 80 addresses showing frequent position reversions and an average reversion frequency of 63.49, there is a significant indication of wash trading. Frequent position reversions imply that these addresses often return to their initial market positions, a hallmark of wash trading.\n   - Among these, 13 addresses also participate in cycles, further suggesting that these addresses are engaging in trades that do not result in a real change of ownership.\n   - While market makers can exhibit high volume and frequent trades, the combination of high symmetry, cycle participation, and frequent position reversions is atypical for legitimate market-making activities.\n\n3. **Volume Analysis:**\n   - The volume concentration range of 0.005 to 0.056 is relatively narrow, indicating that trades are being executed in a consistent pattern, which could be indicative of wash trading.\n   - High volume symmetry patterns, especially when combined with cycle participation, suggest that these trades are not contributing to genuine market activity but are instead designed to create the illusion of volume.\n   - Normal trading variance would typically show more diverse volume patterns, whereas the observed symmetry and concentration suggest manipulation.\n\nEVIDENCE SUMMARY:\n- **Network Analysis:** 10 cycles detected, 16 addresses involved, 3 addresses with high volume symmetry and cycle participation.\n- **Position Analysis:** 80 addresses with frequent position reversions, 13 addresses with both reversion and cycle participation.\n- **Volume Analysis:** Narrow volume concentration range, high volume symmetry patterns.\n\nWASH TRADING ASSESSMENT:\nBased on the analysis, it is likely that wash trading is occurring within this dataset. The combination of cycle detection, high volume symmetry, frequent position reversions, and narrow volume concentration strongly suggests manipulative trading behavior.\n\nCONFIDENCE LEVEL:\n85% - The presence of multiple indicators across different analysis dimensions (network, position, and volume) provides a high level of confidence in the assessment. However, without direct evidence of collusion or intent, there remains a margin for legitimate explanations.\n\nSUSPICIOUS ADDRESSES:\n- re2bf738759583b995176e7790a9609d7\n- rda14188a9a41f81b55dbb75cc7ab312f\n- r52d41895bc50a73d1f935a32ecf825e4\n- r71b746079f043f3155171dfce1e51647\n- r3e12adec9e2c34dcf4533ca17b830bb2\n- Additional addresses involved in cycles and frequent position reversions (not explicitly listed in the sample but inferred from the analysis)."
+    }
+  },
+  {
+    "difficulty": "hard",
+    "seed": 2242,
+    "num_transactions": 1000,
+    "is_valid": true,
+    "graph_path": "/var/folders/hb/jt4n8xtx3dj2h2g7_jtnp_f80000gn/T/transaction_graph.html",
+    "execution_time": 11.948477983474731,
+    "precision": 0.2,
+    "recall": 0.09090909090909091,
+    "f1_score": 0.12500000000000003,
+    "true_positives": 1,
+    "false_positives": 4,
+    "false_negatives": 10,
+    "true_negatives": 96,
+    "ground_truth_info": {
+      "wash_groups": [
+        [
+          "r26a68732a6608cf9340d34c88ecdcbf0",
+          "r8702f646cac595220c5ed11083ba769f",
+          "r21bb32f54c4a41f24526f871607193be",
+          "r7fb88716f3aa2ab28460b2b9a677ba10"
+        ],
+        [
+          "r8ba48250e8b0758463d2a365fc330ce0",
+          "r4d09c4529f997379e4c685cd34481003",
+          "r8bb7874bf67ce2b82978eca4f81a2177",
+          "r830d23c85bb9135acad7c446a20d8057",
+          "r3ea54fc49adc1a5a80ad1ec996aa1885",
+          "r3242435d766af52839baca5e794a751e",
+          "r8f8b1086b2961d1468d24479e50d0b75"
+        ]
+      ],
+      "market_makers": [
+        "r61bfe7ee65759b3d084aa1b871b0e3b1",
+        "rd796efee92d431ecfcb222cc81b85e00",
+        "r419a2051213dbb0b14cf0ab58d28a961",
+        "rbb86aed90b2b6977a4f7a931a8162849",
+        "r23d3ad716b7eb405db00a6c1220e4f22"
+      ],
+      "wash_trader_connections": {
+        "r26a68732a6608cf9340d34c88ecdcbf0": [
+          "r4eb06276a930360733ac397388d6566d",
+          "r12f9da27f51fad8103dbd4384aec24a6",
+          "r0917716e18fa71c0cc75476b1f9446ff",
+          "r18df9c344476fbebd5e37dc058eaec3c",
+          "r7f2f4ccbfc03a86dd3b7813074bd1d2e"
+        ],
+        "r8702f646cac595220c5ed11083ba769f": [
+          "r21c0f0d801a8b2999221e6467f925909",
+          "r75be31a4da3cacb6a8059c0ce118eb44",
+          "r881a253e40499dd4c9732960084d7388",
+          "r7c6128e37446aec251921a438dda13a2",
+          "r0e235563b7c7402a1226c039d9f2a331"
+        ],
+        "r21bb32f54c4a41f24526f871607193be": [
+          "r74c09d262760083629e583386551cc57",
+          "ra78e60b1e9a6277f873f43b9a4b8d861",
+          "r89e0fe1fbc5fe264ac766dfe51646624",
+          "r43d382a360cf84468a239aed36b12100",
+          "r16ecb4d447d5b2f10f04413f1f235204"
+        ],
+        "r7fb88716f3aa2ab28460b2b9a677ba10": [
+          "re7c5d736fac37be0005cc74d31b5b7b5",
+          "r4fae3160f77359b5fa91c4f51a4add60",
+          "r663a3d558e509b4ae18b0303849195e1",
+          "r16ecb4d447d5b2f10f04413f1f235204",
+          "rf4b87e05b62d1e3dd856c66fffd0e3b3"
+        ],
+        "r8ba48250e8b0758463d2a365fc330ce0": [
+          "r813a6148f4e0505593450c9e73023afc",
+          "r5fd8e864fe9bb7b7966c8141f3b01b7d",
+          "rdae2f8dc6273122d50b8c1829992c4c0",
+          "r7965d27ee75f0de03cde0ef0dd65982d",
+          "rf4b87e05b62d1e3dd856c66fffd0e3b3"
+        ],
+        "r4d09c4529f997379e4c685cd34481003": [
+          "r95f63565f67acc30962b91624c9bf23f",
+          "r10c98b8a7edc1670323d29f493be96ac",
+          "r4fae3160f77359b5fa91c4f51a4add60",
+          "r5bcb53a324465f46ea3d660961efb8d0",
+          "rf32e73bf8c258af8b48f13a54db0df8f"
+        ],
+        "r8bb7874bf67ce2b82978eca4f81a2177": [
+          "r90f18408e98daf0f92bb14b591fb9957",
+          "r1cdd7c96234b7aa7488c3f262a58d034",
+          "r9a234ac70f61e7d1d98028202bd31b8b",
+          "r806e62ece255749ab9f3b8d86a493c37",
+          "r27a63acaa6fcddccb638ac58a95f56c7"
+        ],
+        "r830d23c85bb9135acad7c446a20d8057": [
+          "r680ccbc0de0e912f159f7cefae3e78c8",
+          "r6bb1b13c4815e23fbc5e9a929ae7aac9",
+          "r1cdd7c96234b7aa7488c3f262a58d034",
+          "r13e955407cac61d871bbf249ddc48781",
+          "r03cb65df98b273d5be31abc2e64ea047"
+        ],
+        "r3ea54fc49adc1a5a80ad1ec996aa1885": [
+          "rc345998f2b1490ecee9a359f4579e375",
+          "r836294148326c8dc76d13e2b74ab523c",
+          "r9a234ac70f61e7d1d98028202bd31b8b",
+          "r3ce0bbb7ac858eb8dcc26e0e7667e29c",
+          "r682f403ba9ded525aeb1a0cb10d836a5"
+        ],
+        "r3242435d766af52839baca5e794a751e": [
+          "r836294148326c8dc76d13e2b74ab523c",
+          "rad248035b2cc1c04f99c5f7b5005a89c",
+          "r44562ec96556f4c375aecea978ed57eb",
+          "rbb77487502322b5c56fe03e0983b1c81",
+          "r03cb65df98b273d5be31abc2e64ea047"
+        ],
+        "r8f8b1086b2961d1468d24479e50d0b75": [
+          "r836294148326c8dc76d13e2b74ab523c",
+          "r6bb1b13c4815e23fbc5e9a929ae7aac9",
+          "r5bcb53a324465f46ea3d660961efb8d0",
+          "r806e62ece255749ab9f3b8d86a493c37",
+          "r6c8590c2800181f8c2a5397ab316db25"
+        ]
+      },
+      "metrics": {
+        "total_volume": 14738.335227845044,
+        "wash_volume": 3741.5386915832355,
+        "wash_volume_percentage": 0.25386440420451084,
+        "num_wash_transactions": 260,
+        "total_transactions": 1000
+      }
+    },
+    "detection_info": {
+      "reasoning_process": {
+        "network": "**\n   - **Cycle Detection:** The dataset indicates 10 detected cycles with an average cycle length of 5.00, involving 15 addresses. This suggests potential circular trading, a common wash trading pattern where assets are traded in a loop among colluding parties.\n   - **Volume Symmetry:** High volume symmetry addresses (>80% in/out balance) include rd796efee92d431ecfcb222cc81b85e00, r419a2051213dbb0b14cf0ab58d28a961, r476131d3a40a092262f26a542f03545a, r23d3ad716b7eb405db00a6c1220e4f22, and r3242435d766af52839baca5e794a751e. These addresses are likely involved in wash trading as they maintain a balanced volume of incoming and outgoing transactions, indicative of no real change in ownership.\n   - **Token Flow Patterns:** The presence of cycles and high symmetry suggests a pattern where tokens are circulated among a set of addresses without changing the net position, aligning with wash trading characteristics.\n\n2. **Position Analysis:**\n   - **Position Reversions:** 82 addresses exhibit frequent position reversions with an average frequency of 63.27. This high frequency of reverting to previous market positions is suspicious, as it suggests trades are being executed without altering the trader's market position.\n   - **Symmetry and Reversions:** The overlap of high volume symmetry and frequent position reversions in certain addresses strengthens the suspicion of wash trading. These addresses are likely engaging in trades that appear legitimate but do not alter their market position.\n\n3. **Volume Analysis:**\n   - **Volume Concentration:** The volume concentration range of 0.005 to 0.049 is relatively low, which might indicate attempts to camouflage wash trades by keeping transaction sizes small.\n   - **Suspicious Volume Symmetry:** The high volume symmetry in certain addresses, combined with their participation in detected cycles, suggests these addresses are involved in wash trading. This pattern is not typical of normal trading variance or market-making activities.",
+        "volume": "**\n   - **Volume Concentration:** The volume concentration range of 0.005 to 0.049 is relatively low, which might indicate attempts to camouflage wash trades by keeping transaction sizes small.\n   - **Suspicious Volume Symmetry:** The high volume symmetry in certain addresses, combined with their participation in detected cycles, suggests these addresses are involved in wash trading. This pattern is not typical of normal trading variance or market-making activities.",
+        "temporal": "",
+        "price": "",
+        "behavioral": ""
+      },
+      "evidence": {
+        "network": [],
+        "volume": [],
+        "temporal": [],
+        "price": [],
+        "behavioral": []
+      },
+      "alternative_explanations": [],
+      "is_wash_trading": true,
+      "confidence": 0.85,
+      "suspicious_addresses": [
+        "rd796efee92d431ecfcb222cc81b85e00",
+        "r419a2051213dbb0b14cf0ab58d28a961",
+        "r476131d3a40a092262f26a542f03545a",
+        "r23d3ad716b7eb405db00a6c1220e4f22",
+        "r3242435d766af52839baca5e794a751e"
+      ],
+      "recommendations": [],
+      "raw_response": "DETAILED REASONING:\n\n1. **Network Analysis:**\n   - **Cycle Detection:** The dataset indicates 10 detected cycles with an average cycle length of 5.00, involving 15 addresses. This suggests potential circular trading, a common wash trading pattern where assets are traded in a loop among colluding parties.\n   - **Volume Symmetry:** High volume symmetry addresses (>80% in/out balance) include rd796efee92d431ecfcb222cc81b85e00, r419a2051213dbb0b14cf0ab58d28a961, r476131d3a40a092262f26a542f03545a, r23d3ad716b7eb405db00a6c1220e4f22, and r3242435d766af52839baca5e794a751e. These addresses are likely involved in wash trading as they maintain a balanced volume of incoming and outgoing transactions, indicative of no real change in ownership.\n   - **Token Flow Patterns:** The presence of cycles and high symmetry suggests a pattern where tokens are circulated among a set of addresses without changing the net position, aligning with wash trading characteristics.\n\n2. **Position Analysis:**\n   - **Position Reversions:** 82 addresses exhibit frequent position reversions with an average frequency of 63.27. This high frequency of reverting to previous market positions is suspicious, as it suggests trades are being executed without altering the trader's market position.\n   - **Symmetry and Reversions:** The overlap of high volume symmetry and frequent position reversions in certain addresses strengthens the suspicion of wash trading. These addresses are likely engaging in trades that appear legitimate but do not alter their market position.\n\n3. **Volume Analysis:**\n   - **Volume Concentration:** The volume concentration range of 0.005 to 0.049 is relatively low, which might indicate attempts to camouflage wash trades by keeping transaction sizes small.\n   - **Suspicious Volume Symmetry:** The high volume symmetry in certain addresses, combined with their participation in detected cycles, suggests these addresses are involved in wash trading. This pattern is not typical of normal trading variance or market-making activities.\n\nEVIDENCE SUMMARY:\n- **Cycle Detection:** 10 cycles with an average length of 5.00, involving 15 addresses.\n- **Volume Symmetry:** High symmetry in specific addresses, indicating potential wash trading.\n- **Position Reversions:** 82 addresses with frequent reversions, suggesting trades without real market position changes.\n- **Volume Concentration:** Low transaction sizes potentially used to camouflage wash trades.\n\nWASH TRADING ASSESSMENT:\nBased on the analysis, wash trading is likely occurring in this dataset. The combination of circular trading patterns, high volume symmetry, frequent position reversions, and low volume concentration strongly suggests the presence of wash trading activities.\n\nCONFIDENCE LEVEL:\n85% - The evidence from cycle detection, volume symmetry, and position reversion metrics provides a strong indication of wash trading. However, without additional context or transaction labels, there remains a margin for normal trading activities to be misinterpreted.\n\nSUSPICIOUS ADDRESSES:\n- rd796efee92d431ecfcb222cc81b85e00\n- r419a2051213dbb0b14cf0ab58d28a961\n- r476131d3a40a092262f26a542f03545a\n- r23d3ad716b7eb405db00a6c1220e4f22\n- r3242435d766af52839baca5e794a751e"
+    }
+  },
+  {
+    "difficulty": "hard",
+    "seed": 2342,
+    "num_transactions": 1000,
+    "is_valid": true,
+    "graph_path": "/var/folders/hb/jt4n8xtx3dj2h2g7_jtnp_f80000gn/T/transaction_graph.html",
+    "execution_time": 12.774212837219238,
+    "precision": 0.2,
+    "recall": 0.09090909090909091,
+    "f1_score": 0.12500000000000003,
+    "true_positives": 1,
+    "false_positives": 4,
+    "false_negatives": 10,
+    "true_negatives": 96,
+    "ground_truth_info": {
+      "wash_groups": [
+        [
+          "r62e870861cbfa3c8c5b57e6d570df448",
+          "r860c5df8f99fd689cb80e4de6e2456ce",
+          "r8c9a2076b1bb9419e9db6d5b74bf13aa",
+          "rbbc7f043a353828a8d1eb3a5745a0f12"
+        ],
+        [
+          "r40fe3535b2c4e101eca6fec15ea7892c",
+          "ra92f3fa9dda5c416b854d766ffc45a66",
+          "r0bfc1cf02de366057879961bd112e2ad",
+          "re980c863b78ca81f571eab6515c13c11",
+          "rfe213eababf48ebdf8922b897c2feee4",
+          "r79bf1c68c790895aa13715a73e31d16c",
+          "r5c09b452af3b77d6099074da3187be72"
+        ]
+      ],
+      "market_makers": [
+        "r8702f646cac595220c5ed11083ba769f",
+        "r8ba48250e8b0758463d2a365fc330ce0",
+        "r21bb32f54c4a41f24526f871607193be",
+        "r26a68732a6608cf9340d34c88ecdcbf0",
+        "r7fb88716f3aa2ab28460b2b9a677ba10"
+      ],
+      "wash_trader_connections": {
+        "r62e870861cbfa3c8c5b57e6d570df448": [
+          "rcf4fa1d75346fc7c90b11aec6b9cbdf2",
+          "rd10595e56b492c2b4fe01398ad8ddda1",
+          "r6a1fe035256196e886f6ea64430bb761",
+          "r7233f558536952cf005f3cae63932bcf",
+          "r3242435d766af52839baca5e794a751e"
+        ],
+        "r860c5df8f99fd689cb80e4de6e2456ce": [
+          "r8905e4b0f79ba4b31067091366949683",
+          "r391201455771b9a153bd1a28b9b00538",
+          "r2773fc5c1912ae06e05ea31605d2c430",
+          "r99ea7c81f94bb667ae22a83babc228ea",
+          "rc0885aa3cc698ecd3af610e565a9c0af"
+        ],
+        "r8c9a2076b1bb9419e9db6d5b74bf13aa": [
+          "rcfddfcce1300f369c5e839935a044b0c",
+          "r89b6873aff51ab542932cfaad3dfaa13",
+          "r3855a95b3aff3c8188887aabdaf8d434",
+          "r4c644f4405dccf5d8b14fe167eea4629",
+          "r779bdc1a510e33b3a1fa2732d5944e55"
+        ],
+        "rbbc7f043a353828a8d1eb3a5745a0f12": [
+          "re7b81e3a222ef25eb0a85dad1c8b0ace",
+          "reaca735777b03b4493c1989fb8660b5b",
+          "rfe7984c4aa935f1ecf9277a3898b7632",
+          "rd1c0db08a7cf7454829b3ae0b5693877",
+          "r43514fe80440563ae10b6b9d4aac9098"
+        ],
+        "r40fe3535b2c4e101eca6fec15ea7892c": [
+          "r830d23c85bb9135acad7c446a20d8057",
+          "rd80907a38b65ebaaaf173092542ead10",
+          "r99ea7c81f94bb667ae22a83babc228ea",
+          "r87bd24f86f1d54918a36eaf7829fe35d",
+          "rd80792c7d809940f15edf58063d4fa98"
+        ],
+        "ra92f3fa9dda5c416b854d766ffc45a66": [
+          "r4f4ea260c3e879ac47932469f096ee7e",
+          "r94ae425e3ac97d41832135a11b2fc2fe",
+          "r6a1fe035256196e886f6ea64430bb761",
+          "r477a423a4d97a3434cd1c46a59ba5840",
+          "rae9f3725340e46b67fdbf412557eb7c8"
+        ],
+        "r0bfc1cf02de366057879961bd112e2ad": [
+          "rab3bc6cd3ef3d513eb11f0b9ab56abdd",
+          "r2d700587527cbe736affb3189a6cd8ce",
+          "re6d764de38fcc67cdab453c1bb916edc",
+          "r779bdc1a510e33b3a1fa2732d5944e55",
+          "r974adf75e910b3ecc5da838a7cba3054"
+        ],
+        "re980c863b78ca81f571eab6515c13c11": [
+          "rbddb9d6daad110a3ad08692a0697a337",
+          "r830d23c85bb9135acad7c446a20d8057",
+          "re6d764de38fcc67cdab453c1bb916edc",
+          "ra8e3cbd1040f8f1d78b891dd574c3937",
+          "r8bb7874bf67ce2b82978eca4f81a2177"
+        ],
+        "rfe213eababf48ebdf8922b897c2feee4": [
+          "rd1b29490a23bf73054840034cad69256",
+          "r970bca8c9ca87dfa9a82db82cbc5632b",
+          "r94ae425e3ac97d41832135a11b2fc2fe",
+          "r2773fc5c1912ae06e05ea31605d2c430",
+          "r7872010ae3665379d21cdb3963685ba2"
+        ],
+        "r79bf1c68c790895aa13715a73e31d16c": [
+          "r3989163cef5e4c7037e774fc77db5749",
+          "re6d764de38fcc67cdab453c1bb916edc",
+          "rd10595e56b492c2b4fe01398ad8ddda1",
+          "rc0885aa3cc698ecd3af610e565a9c0af",
+          "re9f3baa6a18954a86e750a37efd61d98"
+        ],
+        "r5c09b452af3b77d6099074da3187be72": [
+          "r4f4ea260c3e879ac47932469f096ee7e",
+          "rd80907a38b65ebaaaf173092542ead10",
+          "r98c0cf7f54d87be46173882cf68039e8",
+          "r974adf75e910b3ecc5da838a7cba3054",
+          "rd8398316fa5e493194273d6e2b5314e6"
+        ]
+      },
+      "metrics": {
+        "total_volume": 14812.995216464811,
+        "wash_volume": 3757.425918704122,
+        "wash_volume_percentage": 0.25365740444766366,
+        "num_wash_transactions": 260,
+        "total_transactions": 1000
+      }
+    },
+    "detection_info": {
+      "reasoning_process": {
+        "network": "**\n   - **Cycle Detection:** The dataset indicates 10 detected cycles with an average cycle length of 4.40, involving 14 addresses. This suggests potential circular trading, a common wash trading pattern where assets are passed around in a loop to create the illusion of activity.\n   - **Volume Symmetry:** High volume symmetry is noted for several addresses, indicating that the amount of tokens sent and received is nearly balanced. This can be a sign of wash trading, especially when combined with cycle participation.\n   - **Token Flow Patterns:** Mapping the token flow reveals that some addresses are involved in both high volume symmetry and cycle participation, suggesting coordinated trading activity that does not change the net position of the traders involved.\n\n2. **Position Analysis:**\n   - **Position Reversions:** 82 addresses show frequent position reversions, with an average frequency of 62.88. This high frequency of reverting to previous positions can indicate wash trading, as traders often end up in the same market position after executing trades.\n   - **Symmetry and Reversions:** Five addresses exhibit both high volume symmetry and frequent position reversions, which is a strong indicator of wash trading. These addresses are likely engaging in trades that do not alter their market position, aligning with the legal definition of wash trading.\n   - **Market Maker Behavior:** While market makers can exhibit high volume and frequent trades, the combination of cycle participation, high symmetry, and frequent reversions suggests behavior beyond typical market making.\n\n3. **Volume Analysis:**\n   - **Volume Concentration Ratios:** The volume concentration range is between 0.005 to 0.048, which is relatively low and suggests that the trades are not large enough to be typical of market-making activities, which often involve larger volumes.\n   - **Suspicious Volume Symmetry:** The high volume symmetry observed in certain addresses, especially those involved in cycles, indicates potential wash trading. This symmetry suggests that trades are being executed to create the appearance of activity without genuine market risk.",
+        "volume": "**\n   - **Volume Concentration Ratios:** The volume concentration range is between 0.005 to 0.048, which is relatively low and suggests that the trades are not large enough to be typical of market-making activities, which often involve larger volumes.\n   - **Suspicious Volume Symmetry:** The high volume symmetry observed in certain addresses, especially those involved in cycles, indicates potential wash trading. This symmetry suggests that trades are being executed to create the appearance of activity without genuine market risk.",
+        "temporal": "",
+        "price": "",
+        "behavioral": ""
+      },
+      "evidence": {
+        "network": [],
+        "volume": [],
+        "temporal": [],
+        "price": [],
+        "behavioral": []
+      },
+      "alternative_explanations": [],
+      "is_wash_trading": true,
+      "confidence": 0.85,
+      "suspicious_addresses": [
+        "r8702f646cac595220c5ed11083ba769f",
+        "re9f3baa6a18954a86e750a37efd61d98",
+        "r21bb32f54c4a41f24526f871607193be",
+        "rd1b29490a23bf73054840034cad69256",
+        "re980c863b78ca81f571eab6515c13c11"
+      ],
+      "recommendations": [],
+      "raw_response": "DETAILED REASONING:\n\n1. **Network Analysis:**\n   - **Cycle Detection:** The dataset indicates 10 detected cycles with an average cycle length of 4.40, involving 14 addresses. This suggests potential circular trading, a common wash trading pattern where assets are passed around in a loop to create the illusion of activity.\n   - **Volume Symmetry:** High volume symmetry is noted for several addresses, indicating that the amount of tokens sent and received is nearly balanced. This can be a sign of wash trading, especially when combined with cycle participation.\n   - **Token Flow Patterns:** Mapping the token flow reveals that some addresses are involved in both high volume symmetry and cycle participation, suggesting coordinated trading activity that does not change the net position of the traders involved.\n\n2. **Position Analysis:**\n   - **Position Reversions:** 82 addresses show frequent position reversions, with an average frequency of 62.88. This high frequency of reverting to previous positions can indicate wash trading, as traders often end up in the same market position after executing trades.\n   - **Symmetry and Reversions:** Five addresses exhibit both high volume symmetry and frequent position reversions, which is a strong indicator of wash trading. These addresses are likely engaging in trades that do not alter their market position, aligning with the legal definition of wash trading.\n   - **Market Maker Behavior:** While market makers can exhibit high volume and frequent trades, the combination of cycle participation, high symmetry, and frequent reversions suggests behavior beyond typical market making.\n\n3. **Volume Analysis:**\n   - **Volume Concentration Ratios:** The volume concentration range is between 0.005 to 0.048, which is relatively low and suggests that the trades are not large enough to be typical of market-making activities, which often involve larger volumes.\n   - **Suspicious Volume Symmetry:** The high volume symmetry observed in certain addresses, especially those involved in cycles, indicates potential wash trading. This symmetry suggests that trades are being executed to create the appearance of activity without genuine market risk.\n\nEVIDENCE SUMMARY:\n- **Cycle Detection:** 10 cycles detected with 14 addresses involved, indicating circular trading patterns.\n- **Volume Symmetry:** High volume symmetry observed in several addresses, suggesting coordinated trading.\n- **Position Reversions:** 82 addresses with frequent position reversions, indicating potential wash trading.\n- **Combined Indicators:** Five addresses show both high volume symmetry and frequent position reversions, strongly suggesting wash trading.\n\nWASH TRADING ASSESSMENT:\nBased on the analysis, wash trading is likely occurring in this dataset. The combination of cycle detection, high volume symmetry, and frequent position reversions aligns with known wash trading patterns.\n\nCONFIDENCE LEVEL:\n85% - The presence of multiple indicators (cycle participation, volume symmetry, and position reversions) provides strong evidence of wash trading. However, without additional context or transaction labels, there remains a small margin of uncertainty.\n\nSUSPICIOUS ADDRESSES:\n- r8702f646cac595220c5ed11083ba769f\n- re9f3baa6a18954a86e750a37efd61d98\n- r21bb32f54c4a41f24526f871607193be\n- rd1b29490a23bf73054840034cad69256\n- re980c863b78ca81f571eab6515c13c11"
+    }
+  }
+]
